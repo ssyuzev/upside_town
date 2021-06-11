@@ -34,8 +34,8 @@ class Person(models.Model):
     email = models.EmailField(unique=True, blank=False)
     gender = models.CharField(max_length=1, choices=GENDERS, default="m", blank=False)
     full_name = models.CharField(max_length=150, blank=False, default="")
-    longitude = models.FloatField()
-    latitude = models.FloatField()
+    longitude = models.FloatField(blank=False, null=False)
+    latitude = models.FloatField(blank=False, null=False)
 
     def __str__(self):
         return f"{self.full_name} ({self.email})"
