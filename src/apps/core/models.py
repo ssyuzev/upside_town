@@ -5,6 +5,8 @@ from django.core.exceptions import ValidationError
 from django.db import models
 from django.utils.timezone import now
 
+from PIL import Image, ImageOps
+
 
 def user_directory_path(instance, filename):
     """File will be upload to 'MEDIA_ROOT/user/<timestamp>/<filename>'."""
@@ -34,3 +36,16 @@ class Person(models.Model):
     full_name = models.CharField(max_length=150, blank=False, default="")
     longitude = models.FloatField()
     latitude = models.FloatField()
+
+    def __str__(self):
+        return f"{self.full_name} ({self.email})"
+
+    def save(self, *args, **kwargs):
+        """Save new Person and flip the photo."""
+        super(Person, self).save(*args, **kwargs)
+        image = Image.open(self.photo.path)
+        if image.width > 800 or image.height > 600:
+            output_size = (800, 600)
+            image.thumbnail(output_size)
+        image = ImageOps.flip(image)
+        image.save(self.photo.path)
