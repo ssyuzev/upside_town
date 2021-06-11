@@ -1,0 +1,143 @@
+{
+	"info": {
+		"_postman_id": "fbca7943-80fd-4bd7-aa48-49c401931c24",
+		"name": "Upside_town",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "my9@my.com",
+							"type": "text"
+						},
+						{
+							"key": "gender",
+							"value": "m",
+							"type": "text"
+						},
+						{
+							"key": "full_name",
+							"value": "John Doe",
+							"type": "text"
+						},
+						{
+							"key": "longitude",
+							"value": "123",
+							"type": "text"
+						},
+						{
+							"key": "latitude",
+							"value": "321",
+							"type": "text"
+						},
+						{
+							"key": "photo",
+							"type": "file",
+							"src": "/Users/ssyuzev/Pictures/baby_yoda.jpeg"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/create",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Match: add",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "from_person",
+							"value": "7",
+							"type": "text"
+						},
+						{
+							"key": "to_person",
+							"value": "6",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/match",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"match"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/list?gender[eq]=f&distance[lte]=100&page=1&personId=7",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"list"
+					],
+					"query": [
+						{
+							"key": "gender[eq]",
+							"value": "f"
+						},
+						{
+							"key": "distance[lte]",
+							"value": "100"
+						},
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "personId",
+							"value": "7"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
