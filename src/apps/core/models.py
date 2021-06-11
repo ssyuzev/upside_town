@@ -49,3 +49,16 @@ class Person(models.Model):
             image.thumbnail(output_size)
         image = ImageOps.flip(image)
         image.save(self.photo.path)
+
+
+class Like(models.Model):
+
+    from_person = models.ForeignKey(Person, on_delete=models.SET_NULL, null=True, related_name="from_person")
+    to_person = models.ForeignKey(Person, on_delete=models.SET_NULL, null=True, related_name="to_person")
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.id}: {self.from_person.full_name} to {self.to_person.full_name}"
+
+    class Meta:
+        unique_together = ('from_person', 'to_person',)

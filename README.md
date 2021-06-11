@@ -29,7 +29,7 @@ The world needs another dating app! But it needs a twist...more like a flip actu
 
   - the `/list` API should be filterable and paginatable
     - Filter: distance e.g. `/list?gender[eq]=f&distance[lte]=100`
-      - You can use the first formula from [this Wikipedia article](https://en.wikipedia.org/wiki/ Great-circle_distance) to calculate distance. Don't forget, you'll need to convert degrees to radians.
+      - You can use the first formula from [this Wikipedia article](https://en.wikipedia.org/wiki/Great-circle_distance) to calculate distance. Don't forget, you'll need to convert degrees to radians.
     - Pagination: e.g. `/list?page=1`
 
 - Store the data in memory or using sqlite
